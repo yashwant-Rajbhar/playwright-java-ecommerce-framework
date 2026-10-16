@@ -2,6 +2,7 @@
 <suite name="E-Commerce Suite" parallel="classes" thread-count="4">
     <listeners>
         <listener class-name="listeners.TestListener"/>
+        <listener class-name="listeners.RetryTransformer"/>
     </listeners>
     <test name="Regression">
         <classes>

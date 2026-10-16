@@ -6,6 +6,7 @@ import com.microsoft.playwright.PlaywrightException;
 import com.microsoft.playwright.options.LoadState;
 import com.microsoft.playwright.options.WaitForSelectorState;
 import utils.ConfigReader;
+import utils.PageLoad;
 import utils.PriceUtil;
 
 public class CartPage {
@@ -87,7 +88,9 @@ public class CartPage {
 
     /** Logged-out user: the button opens a "Register / Login" popup instead. */
     public void clickProceedToCheckoutLoggedOut() {
-        page.waitForLoadState(LoadState.LOAD);
+        page.waitForURL("**/view_cart");
+        page.waitForLoadState(LoadState.LOAD);   // the click handler is attached by a script at the bottom
+        PageLoad.waitForContent(page, checkoutButton, "Cart page");   // reloads once if the page came empty
         checkoutButton.click();
     }
 
