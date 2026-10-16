@@ -1,0 +1,8 @@
+target/
+.idea/
+*.iml
+reports/
+allure-results/
+allure-report/
+src/main/resources/config-local.properties
+.DS_Store
